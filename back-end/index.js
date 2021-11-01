@@ -4,7 +4,7 @@ const app = express();
 app.use(express.json());
 app.use(cors());
 
-const filmesRouter = require('./filmes.routes');
+const filmesRouter = require('./routes/filmes.routes');
 app.use('/filmes', filmesRouter);
 
 const port = 3000;
