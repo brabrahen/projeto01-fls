@@ -4,26 +4,26 @@ const router = express.Router();
 const filmes = [
     {
         id: Date.now(),
-        titulo: "Demon Slayer: Mugen Train",
-        ano: "2020",
-        poster: "https://d17lbu6bbzbdc8.cloudfront.net/wp-content/uploads/2021/09/28080018/mugen-train.jpg",
-        genero: "Ação/Fantasia",
-        duracao: "2h"
+        titulo: 'Demon Slayer: Mugen Train',
+        ano: '2020',
+        poster: 'https://d17lbu6bbzbdc8.cloudfront.net/wp-content/uploads/2021/09/28080018/mugen-train.jpg',
+        genero: 'Ação/Fantasia',
+        duracao: '2h'
         
     },
     {
         id: Date.now(),
-        titulo: "Viúva Negra",
-        ano: "2021",
-        poster: "https://m.media-amazon.com/images/M/MV5BNjRmNDI5MjMtMmFhZi00YzcwLWI4ZGItMGI2MjI0N2Q3YmIwXkEyXkFqcGdeQXVyMTkxNjUyNQ@@._V1_FMjpg_UX1000_.jpg",
-        genero: "Ação/Aventura",
-        duracao: "2h 13m"
+        titulo: 'Viúva Negra',
+        ano: '2021',
+        poster: 'https://m.media-amazon.com/images/M/MV5BNjRmNDI5MjMtMmFhZi00YzcwLWI4ZGItMGI2MjI0N2Q3YmIwXkEyXkFqcGdeQXVyMTkxNjUyNQ@@._V1_FMjpg_UX1000_.jpg',
+        genero: 'Ação/Aventura',
+        duracao: '2h 13m'
         
     },
     {
         id: Date.now(),
-        titulo: "Space Jam: O jogo do Século",
-        ano: "1996",
+        titulo:'Space Jam: O jogo do Século',
+        ano:'1999',
         poster: "https://i.pinimg.com/736x/10/a9/f1/10a9f17ee50426cb6572097e827e217d.jpg",
         genero: "Infantil/Comédia",
         duracao: "1h 28m"
@@ -57,9 +57,9 @@ router.get('/:id', (req, res) => {
 router.post("/add", (req, res)=>{
     const filme = req.body;
 
-    if(!filme || !filme.titulo || !filme.ano || !filme.poster || !filme.poster || !filme.genero || !filme.duracao) {
+    if(!filme || !filme.titulo || !filme.ano || !filme.genero || !filme.ano) {
         res.status(400).send({
-            message: 'Impossível cadastrar filme, preencha os campos corretamente!'
+            message: 'Impossível cadastrar filme, preencha os campos de titulo e ano corretamente!'
         })
         return;
     }   

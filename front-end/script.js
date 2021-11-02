@@ -25,7 +25,7 @@ const getFilme = async () => {
                 <p class="card-text"></p>
                 <p class="card-text">${filme.ano}</p>
                 <div>
-                    <button class="btn btn-primary" onclick="editFilme('${filme.id}')">Editar</button>
+                    <button class="btn btn-primary" onclick="putFilme('${filme.id}')">Editar</button>
                     <button class="btn btn-danger" onclick="deleteFilme('{'${filme.id}')">Excluir</button>
                 </div>
             </div>
@@ -61,7 +61,7 @@ const createFilme = async(filme) => {
     const request = new Request(`${apiUrl}/add`, {
         method: 'POST',
         body: JSON.stringify(filme),
-        heeaders: new Headers({
+        headers: new Headers({
             'Content-Type': 'application/json'
         })
     })
@@ -112,6 +112,7 @@ const editFilme = async(id) => {
     idEdit = id;
 
     const filme = await getFilmeById(id);
+
     titulo.value = filme.titulo;
     ano.value = filme.ano;
     poster.value = filme.poster;
@@ -128,6 +129,3 @@ const clearFields = () =>{
 }
 
 getFilme();
-
-
-
