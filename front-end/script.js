@@ -20,7 +20,7 @@ const getFilme = async () => {
             <div class="card">
             <img src="${filme.poster}" class="card-img-top" alt="...">
             <div class="card-body">
-                <h5 class="card-title">${filme.nome} - ${filme.duracao}</h5>
+                <h5 class="card-title">${filme.titulo} - ${filme.duracao}</h5>
                 <span class="badge bg-primary">${filme.genero}</span>
                 <p class="card-text"></p>
                 <p class="card-text">${filme.ano}</p>

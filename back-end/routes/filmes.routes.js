@@ -4,7 +4,7 @@ const router = express.Router();
 const filmes = [
     {
         id: Date.now(),
-        nome: "Demon Slayer: Mugen Train",
+        titulo: "Demon Slayer: Mugen Train",
         ano: "2020",
         poster: "https://d17lbu6bbzbdc8.cloudfront.net/wp-content/uploads/2021/09/28080018/mugen-train.jpg",
         genero: "Ação/Fantasia",
@@ -13,7 +13,7 @@ const filmes = [
     },
     {
         id: Date.now(),
-        nome: "Viúva Negra",
+        titulo: "Viúva Negra",
         ano: "2021",
         poster: "https://m.media-amazon.com/images/M/MV5BNjRmNDI5MjMtMmFhZi00YzcwLWI4ZGItMGI2MjI0N2Q3YmIwXkEyXkFqcGdeQXVyMTkxNjUyNQ@@._V1_FMjpg_UX1000_.jpg",
         genero: "Ação/Aventura",
@@ -31,7 +31,7 @@ const filmes = [
     },
     {
         id: Date.now(),
-        nome: "Mostros S.A.",
+        titulo: "Mostros S.A.",
         ano: "2001",
         poster: "https://i.pinimg.com/originals/4c/4c/91/4c4c91f15251510f75a973eea0470014.jpg",
         genero: "Comédia/Fantasia",
