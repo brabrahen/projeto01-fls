@@ -22,7 +22,7 @@ const filmes = [
     },
     {
         id: Date.now(),
-        nome: "Space Jam: O jogo do Século",
+        titulo: "Space Jam: O jogo do Século",
         ano: "1996",
         poster: "https://i.pinimg.com/736x/10/a9/f1/10a9f17ee50426cb6572097e827e217d.jpg",
         genero: "Infantil/Comédia",
@@ -49,7 +49,7 @@ router.get('/:id', (req, res) => {
     const filme = filmes.find(filme => filme.id == idParam);
     if(!filme){
         res.status(404).send({error: 'Filme não encontrado'});
-        return
+        return;
     }
     res.send(filme);
 });
@@ -57,16 +57,16 @@ router.get('/:id', (req, res) => {
 router.post("/add", (req, res)=>{
     const filme = req.body;
 
-    if(!filme || !filme.titulo || !filme.ano || filme.poster || filme.poster || filme.genero || filme.duracao) {
+    if(!filme || !filme.titulo || !filme.ano || !filme.poster || !filme.poster || !filme.genero || !filme.duracao) {
         res.status(400).send({
             message: 'Impossível cadastrar filme, preencha os campos corretamente!'
-        });
+        })
         return;
     }   
 
     filme.id = Date.now();
     filmes.push(filme);
-    res.send({
+    res.status(201).send({
         message: "Filme cadastrado com sucesso",
         data: filme
     });
@@ -74,8 +74,8 @@ router.post("/add", (req, res)=>{
 
 router.put('/edit/:id', (req, res)=>{
     const filmeEditado = req.body;
-    const id = req.params.id;
-    let index = filmes.findIndex(filme => filme.id == id);
+    const idParam = req.params.id;
+    let index = filmes.findIndex(filme => filme.id == idParam);
 
     if (index < 0) {
         res.status(404).send({
@@ -90,19 +90,19 @@ router.put('/edit/:id', (req, res)=>{
     }
 
     res.send({
-        message: `Filme editado com sucesso`,
+        message: `Filme ${filmes[index].titulo} editado com sucesso`,
         data: filmes[index]
     })
 });
 
 router.delete('/apagar/:id', (req, res) => {
-    const id = req.params.id;
-    const index = filmes.findIndex(filme => filme.id == id);
+    const idParam = req.params.id;
+    const index = filmes.findIndex(filme => filme.id == idParam);
     const nome = filmes[index];
-    filmes.splice(index,1);
+    filmes.splice(index, 1);
 
     res.send({
-        message: `Filme fou excluído com sucesso`
+        message: `Filme ${nome.titulo} foi excluído com sucesso`
     })
 });
 

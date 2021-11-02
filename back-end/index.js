@@ -1,10 +1,13 @@
 const express = require('express');
 const cors = require('cors');
+
+const filmesRouter = require('./routes/filmes.routes');
 const app = express();
+
 app.use(express.json());
 app.use(cors());
 
-const filmesRouter = require('./routes/filmes.routes');
+
 app.use('/filmes', filmesRouter);
 
 const port = 3000;
