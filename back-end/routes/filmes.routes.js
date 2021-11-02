@@ -54,7 +54,7 @@ router.get('/:id', (req, res) => {
     res.send(filme);
 });
 
-router.post("/cadastrar", (req, res)=>{
+router.post("/add", (req, res)=>{
     const filme = req.body;
 
     if(!filme || !filme.titulo || !filme.ano || filme.poster || filme.poster || filme.genero || filme.duracao) {
@@ -72,7 +72,7 @@ router.post("/cadastrar", (req, res)=>{
     });
 });
 
-router.put('/editar/:id', (req, res)=>{
+router.put('/edit/:id', (req, res)=>{
     const filmeEditado = req.body;
     const id = req.params.id;
     let index = filmes.findIndex(filme => filme.id == id);
