@@ -25,8 +25,8 @@ const getFilme = async () => {
                 <p class="card-text"></p>
                 <p class="card-text">${filme.ano}</p>
                 <div>
-                    <button class="btn btn-primary" onclick="putFilme('${filme.id}')">Editar</button>
-                    <button class="btn btn-danger" onclick="deleteFilme('{'${filme.id}')">Excluir</button>
+                    <button class="btn btn-primary" onclick="editFilme('${filme.id}')">Editar</button>
+                    <button class="btn btn-danger" onclick="delFilme('${filme.id}')">Excluir</button>
                 </div>
             </div>
             </div>
@@ -89,7 +89,7 @@ const putFilme = async(filme, id) => {
     getFilme();
 }
 
-const deleteFilme = async (id) =>{
+const delFilme = async (id) =>{
     const request = new Request(`${apiUrl}/apagar/${id}`, {
         method: 'DELETE'
     })
@@ -102,12 +102,13 @@ const deleteFilme = async (id) =>{
     getFilme();
 }
 
-const getFIlmeById = async (id) => {
+const getFilmeById = async (id) => {
     const response = await fetch(`${apiUrl}/${id}`);
     return await response.json();
 }
 
 const editFilme = async(id) => {
+    console.log("rodou")
     edicao = true;
     idEdit = id;
 
